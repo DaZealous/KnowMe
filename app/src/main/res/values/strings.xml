@@ -3,4 +3,7 @@
     <string name="facebook_application_id" translatable="false">2550254661716762</string>
     <string name="facebook_login_protocol_scheme" translatable="false">fb2550254661716762</string>
     <string name="complete_profile">Complete Your Profile</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

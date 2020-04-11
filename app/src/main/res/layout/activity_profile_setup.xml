@@ -4,66 +4,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
+    android:background="@drawable/backgroung_pattern"
     tools:context=".ProfileSetup">
 
     <TextView
-        android:layout_marginTop="10dp"
+        android:id="@+id/profile_setup_complete_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/complete_profile"
         android:layout_centerHorizontal="true"
-        android:textSize="25sp"
-        android:id="@+id/profile_setup_complete_text"
-        android:textStyle="bold"/>
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/rokkitt_bold"
+        android:text="@string/complete_profile"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
 
-    <!--<RelativeLayout
-        android:layout_below="@+id/profile_setup_complete_text"
+    <RelativeLayout
         android:id="@+id/profile_image_layout_setup"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="25dp"
-        android:layout_centerHorizontal="true">
+        android:layout_below="@+id/profile_setup_complete_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_setup_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:civ_border_width="2dp"
             android:src="@drawable/werey_404"
-            app:civ_border_color="@color/colorPrimary"/>
+            app:civ_border_color="@color/colorPrimary"
+            app:civ_border_width="2dp" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btn_pick_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_camera_alt_black_24dp"
+        <ImageButton
+            android:background="@drawable/accent_circle"
+            android:id="@+id/profile_setup_btn_pick_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"/>
-            
-    </RelativeLayout>-->
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_camera_alt_black_24dp" />
+
+    </RelativeLayout>
 
     <EditText
+        android:fontFamily="@font/rokkitt_regular"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:id="@+id/profile_setup_edit_username"
-        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
         android:background="@drawable/edit_draw"
-        android:padding="15dp"
-        android:hint="Enter Username"/>
+        android:hint="Enter Username"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
 
-    <Button
-        android:textColor="@color/white"
-        android:background="@color/colorAccent"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btn_sign_up"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/profile_setup_edit_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign Up"
-        android:id="@+id/btn_sign_up"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.tuyenmonkey.mkloader.MKLoader
+                android:visibility="invisible"
+                android:id="@+id/profile_setup_loader"
+                android:layout_centerInParent="true"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:mk_color="@color/white"
+                app:mk_type="Sharingan" />
+
+            <TextView
+                android:id="@+id/profile_setup_text_go"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorAccent"
+                android:fontFamily="@font/catamaran_bold"
+                android:text="GO"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

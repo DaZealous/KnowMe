@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:gravity="center_vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="55dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:alpha="0.7"/>
+
+    <RelativeLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_toStartOf="@+id/pics_activity_layout"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Know me well enough?"
+            android:textColor="@color/white"
+            android:fontFamily="@font/rokkitt_regular"
+            android:textSize="17sp"/>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/recent_activity_layout_view_more_btn"
+            android:id="@+id/pics_activity_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/pic"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="-7dp"
+            android:src="@drawable/pic3"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="-7dp"
+            android:src="@drawable/pic"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:background="@android:color/transparent"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:id="@+id/recent_activity_layout_view_more_btn"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_more_horiz_blue_24dp"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+</RelativeLayout>

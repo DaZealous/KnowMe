@@ -4,42 +4,167 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context=".UserActivity">
 
-    <RelativeLayout
-        android:id="@+id/profile_image_layout_setup"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="25dp"
-        android:layout_centerHorizontal="true">
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        android:id="@+id/activity_user_toolbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:orientation="vertical"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
+        app:cardElevation="15dp"
+        app:cardCornerRadius="5dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_setup_image"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:civ_border_width="2dp"
-            android:src="@drawable/werey_404"
-            app:civ_border_color="@color/colorPrimary"/>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btn_pick_image"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_camera_alt_black_24dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"/>
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
 
-    </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/activity_home_profile_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/activity_user_image_view"
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:src="@drawable/person_white"
+                    app:civ_border_color="@color/white"
+                    app:civ_border_width="1dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/add_image" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/activity_user_text_greetings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_toStartOf="@id/home_search_icon_white"
+                android:layout_toEndOf="@+id/activity_home_profile_img"
+                android:fontFamily="@font/rokkitt_regular"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/home_search_icon_white"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/home_activity_notifications_layout"
+                android:src="@drawable/home_search_icon_white" />
+
+            <RelativeLayout
+                android:id="@+id/home_activity_notifications_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_notifications_none_white_24dp" />
+
+                <TextView
+                    android:id="@+id/activity_first_blinking_text"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/circle_red"
+                    android:padding="10dp"
+                    android:text="" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:id="@+id/activity_user_fragment_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/activity_user_toolbarLayout" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:rotation="180"
+        android:layout_alignParentBottom="true"
+        style="@style/Widget.Design.AppBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:orientation="vertical"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <RelativeLayout
+            android:rotation="180"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.gauravk.bubblenavigation.BubbleNavigationLinearView
+                android:id="@+id/bottom_navigation_view_linear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:elevation="10dp"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <com.gauravk.bubblenavigation.BubbleToggleView
+                    android:id="@+id/l_item_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    app:bt_active="true"
+                    app:bt_colorActive="@color/white"
+                    app:bt_colorInactive="@color/home_inactive"
+                    app:bt_icon="@drawable/ic_home_blue_24dp"
+                    app:bt_padding="10dp"
+                    app:bt_shape="@drawable/transition_background_home"
+                    app:bt_title="Home"
+                    app:bt_titlePadding="5dp" />
+
+                <com.gauravk.bubblenavigation.BubbleToggleView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    app:bt_active="false"
+                    app:bt_colorActive="@color/white"
+                    app:bt_colorInactive="@color/home_inactive"
+                    app:bt_icon="@drawable/ic_add_circle_blue_24dp"
+                    app:bt_padding="10dp"
+                    app:bt_shape="@drawable/transition_background_new_quiz"
+                    app:bt_title="New Quiz"
+                    app:bt_titlePadding="5dp" />
+
+                <!--<com.gauravk.bubblenavigation.BubbleToggleView
+                    android:layout_marginStart="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:bt_active="true"
+                    app:bt_colorActive="@color/colorAccent"
+                    app:bt_colorInactive="@color/home_inactive"
+                    app:bt_icon="@drawable/ic_person_blue_24dp"
+                    app:bt_shape="@drawable/transition_background_profile"
+                    app:bt_title="Profile"
+                    app:bt_padding="10dp"
+                    app:bt_titlePadding="10dp" />-->
 
 
-    <Button
-        android:layout_centerInParent="true"
-        android:textColor="@color/white"
-        app:cornerRadius="20dp"
-        android:background="@color/colorAccent"
-        android:layout_marginTop="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign Out"
-        android:id="@+id/btn_sign_out"/>
+            </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
+        </RelativeLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
 </RelativeLayout>
